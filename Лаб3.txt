@@ -1,0 +1,40 @@
+using System;
+
+namespace vlad_tpz01
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			Console.WriteLine("Input time");
+			string s=Console.ReadLine();
+			string[] mas=s.Split();
+			int hour=Convert.ToInt32(mas[0]);
+			int minute=Convert.ToInt32(mas[1]);
+			string rez="";
+			if(hour<0||hour>23){
+				rez="Некоректний час";
+				
+			}
+			else{
+				if(minute<0||minute>59){
+					rez="Некоректний час";
+				}
+				else{
+					if(hour<12){
+						rez=Convert.ToString(hour)+":"+Convert.ToString(minute)+" a.m.";
+					}
+					else{
+						hour=hour-12;
+						rez=Convert.ToString(hour)+":"+Convert.ToString(minute)+" p.m.";
+					}
+				}
+			}
+			Console.WriteLine(rez);
+			// TODO: Implement Functionality Here
+			
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
