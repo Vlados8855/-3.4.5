@@ -1,0 +1,59 @@
+
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace paint1
+{
+	public partial class MainForm : Form
+	{
+		public MainForm()
+		{
+		
+			InitializeComponent();
+			pictureBox1.Paint+=PictureBox1Paint;
+
+			
+		}
+		void PictureBox1Click(object sender, EventArgs e)
+		{
+			Graphics g=pictureBox1.CreateGraphics();
+			Pen pp=new Pen(Color.Black,5);
+			int x=100,y=80,w=200,h=130;
+			Rectangle rect=new Rectangle(x,y,w,h);
+			g.DrawRectangle(pp,rect);
+			int cabw=w/3,cabh=h/2;
+			Rectangle cab=new Rectangle(x+w,y-cabh,cabw,cabh+h);
+			g.DrawRectangle(pp,cab);
+			int tx=x+w/10,th=h/2,tw=w/10,ty=y-th;
+			Rectangle t=new Rectangle(tx,ty,tw,th);
+			g.DrawRectangle(pp,t);
+			int xwin=x+w+cabw/10,ywin=y-cabh/3,wwin=cabw*4/5,hwin=ywin-cabh/2;
+			Rectangle win=new Rectangle(xwin,ywin,wwin,hwin);
+			g.DrawRectangle(pp,win);
+			int yc1=y+h,r1=h/3,xc1=x-r1/2;
+			g.DrawEllipse(pp,xc1,yc1,r1,r1);
+			int xc3=x+w,yc3=yc1-h/6,r3=cabw,r32=h/2;
+			g.DrawEllipse(pp,xc3,yc3,r3,r32);
+			int r2=h*2/5,xc2=x+r1,yc2=y+h-h/15;
+			g.DrawEllipse(pp,xc2,yc2,r2,r2);
+			int xc4=x+w-r1/2-r2;
+			g.DrawEllipse(pp,xc4,yc2,r2,r2);
+	
+		}
+		void MainFormLoad(object sender, EventArgs e)
+		{
+	
+		}
+		void MainFormPaint(object sender, PaintEventArgs e)
+		{
+			
+	
+		}
+		void PictureBox1Paint(object sender, PaintEventArgs e)
+		{
+	
+		}
+	}
+}
