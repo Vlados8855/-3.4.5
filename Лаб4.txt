@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace vlad_tpz02
+{
+
+	public partial class MainForm : Form
+	{
+		public MainForm()
+		{
+			
+			InitializeComponent();
+			
+			
+		}
+		void Button3Click(object sender, EventArgs e)
+		{
+			string s=textBox1.Text;
+			 long start=0,bb=0;
+			if(Int32.Parse(s)>0){
+			start=Int32.Parse(s);
+			}
+			if(radioButton1.Checked){
+				bb=start;
+			}
+			else{
+				if(radioButton2.Checked){
+					bb=start*1000;
+				}
+				else{
+					if(radioButton3.Checked){
+						bb=start*1000000;
+					}
+					else{
+						bb=start*1000000000;
+					}
+				}
+			}
+			s=Convert.ToString(bb);
+			textBox2.Text=s;
+		}
+		void Button2Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+		void Button1Click(object sender, EventArgs e)
+		{
+			AboutForm AF=new AboutForm();
+			AF.Show();
+		}
+	}
+}
